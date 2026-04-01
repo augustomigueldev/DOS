@@ -1,10 +1,46 @@
-<form method="post" action="cadastrarTarefa">
-{% csrf_token %}
-<label for="titulo">Título</label>
-<input type="text" name="titulo" id="titulo"><br>
-<label for="descricao">Descrição</label>
-<input type="text" name="descricao" id="descricao"><br>
-<label for="data">Data</label>
-<input type="date" name="data" id="data"><br>
-<input type="submit" value="salvar">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastrar Tarefa</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <!-- Navbar simples -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'listarTarefas' %}">Minhas Tarefas</a>
+            <div class="d-flex text-white align-items-center">
+                <span class="me-3">Olá, {{ user.username }}!</span>
+                <form action="{% url 'logout' %}" method="post" class="m-0">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Sair</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Nova Tarefa</h2>
+        <div class="card p-4 shadow-sm w-50">
+            <form method="post" action="{% url 'cadastrarTarefa' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Título</label>
+                    <input type="text" name="titulo" id="titulo" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="descricao" class="form-label">Descrição</label>
+                    <input type="text" name="descricao" id="descricao" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="data" class="form-label">Data Limite</label>
+                    <input type="date" name="data" id="data" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-success">Salvar Tarefa</button>
+                <a href="{% url 'listarTarefas' %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
