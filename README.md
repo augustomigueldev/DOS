@@ -1,12 +1,40 @@
-# Projeto Django - Todo List
+# Projeto Django — Task Manager
 
-Este é um projeto simples de lista de tarefas (Todo List) desenvolvido utilizando o framework **Django**, a linguagem de programação **Python** e o banco de dados **SQLite**. A aplicação permite gerenciar, listar e acompanhar facilmente as tarefas.
+Sistema completo de gerenciamento de tarefas desenvolvido em **Python/Django**, com autenticação de usuários, controle de prioridades e fluxo completo de CRUD (criar → visualizar → editar → priorizar → concluir).
 
-## Demonstração da Aplicação Rodando
+## ✨ Funcionalidades
 
-Abaixo está uma imagem real do sistema de listagem das tarefas funcionando localmente:
+- 🔒 **Autenticação e isolamento de dados** — Cada usuário só enxerga e gerencia as próprias tarefas
+- 🗂️ **Criação de tarefas** — Com título, descrição, data-limite e prioridade
+- 🎯 **Sistema de prioridade** — Baixa, Média e Alta com badges coloridos
+- ✅ **Marcação de conclusão** — Concluir e reabrir tarefas com um clique
+- 🔍 **Filtros** — Exibir todas, apenas pendentes ou apenas concluídas
+- 🖊️ **Edição completa** — Todos os campos editáveis, incluindo status e prioridade
+- 👁️ **Página de detalhe** — Clique na tarefa para ver e agir sobre ela
+- 🗑️ **Exclusão** — Com confirmação para evitar erros
+
+## 🖥️ Demonstração da Aplicação Rodando
+
+Abaixo está uma imagem real do sistema funcionando localmente:
 
 ![Projeto Rodando](screenshot.png)
+
+---
+
+## 🤔 Por que Django e não HTML/CSS/JS puro?
+
+Esta é uma decisão **técnica e estratégica**, não uma simples preferência. Veja o comparativo:
+
+| Necessidade              | HTML/CSS/JS puro         | Django (framework)                     |
+|--------------------------|--------------------------|----------------------------------------|
+| Rotas e URLs             | Manual e repetitivo      | ✅ Sistema de rotas embutido           |
+| Banco de dados           | Precisa de backend extra | ✅ ORM integrado (SQLite, PostgreSQL…) |
+| Autenticação             | Do zero, complexo        | ✅ Sistema pronto e seguro             |
+| Validação de formulários | JavaScript manual        | ✅ Validação server-side automática    |
+| CSRF Protection          | Implementar manualmente  | ✅ Proteção embutida por padrão        |
+| Manutenção e escalabilidade | Difícil               | ✅ Estrutura MVC organizada            |
+
+> **Conclusão:** O Django reduz drasticamente o tempo de desenvolvimento ao evitar que o programador reinvente funcionalidades básicas. Mesmo num projeto aparentemente simples como um To-Do, a escolha do framework é uma **decisão de engenharia** que visa criar um sistema mais robusto, seguro, reutilizável e escalável — diferente de uma página estática sem persistência de dados ou segurança real.
 
 ---
 
