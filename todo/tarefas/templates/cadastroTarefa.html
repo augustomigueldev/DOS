@@ -1,0 +1,10 @@
+<form method="post" action="cadastrarTarefa">
+{% csrf_token %}
+<label for="titulo">Título</label>
+<input type="text" name="titulo" id="titulo"><br>
+<label for="descricao">Descrição</label>
+<input type="text" name="descricao" id="descricao"><br>
+<label for="data">Data</label>
+<input type="date" name="data" id="data"><br>
+<input type="submit" value="salvar">
+</form>
